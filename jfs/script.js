@@ -33,8 +33,7 @@ const ticTacToe = (index) => {
 
     if (!cells.includes('')) {
         result.textContent = "It's a draw!";
-        return;
-    }
+        return;}
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     result.textContent = `Current Player: ${currentPlayer}`;
