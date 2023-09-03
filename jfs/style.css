@@ -71,3 +71,13 @@
     margin-left: 5px;
     
 }
+.select-box.credit{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.select-box.credit a{
+    color:white;
+    
+}
