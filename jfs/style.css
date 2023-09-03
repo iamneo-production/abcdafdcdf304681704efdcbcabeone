@@ -9,7 +9,7 @@
     font-family: Roboto;
     font-size:50px;
     color:white;
-    text: shadow 1px;
+    text-shadow: shadow 1px;
 }
 ::selection{
     color:#fff;
@@ -118,7 +118,7 @@
     user-select:none;
     transition:all 0.3 ease;
 }
-.players.active span;last-child{
+.players.active span:last-child{
     color:#56baed;
 }
 .players span:first-child{
@@ -135,7 +135,7 @@
     transition:all 0.3s ease;
 }
 .players.active.slider{
-    lest:50%;
+    left:50%;
 }
 .players.active span:first-child{
     color:#56baed;
