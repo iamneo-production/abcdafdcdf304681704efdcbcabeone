@@ -14,11 +14,10 @@ let conditions = [
     [2, 4, 6]
 ];
 
-const ticTacToe = (index) => {
-    
-    if (cells[index] !== '' || result.textContent.includes('wins')) return;
+const ticTacToe = (index) => { 
 
-  
+    if (cells[index] !== '' || result.textContent.includes('wins')) return;
+    
     cells[index] = currentPlayer;
     cellsButtons[index].value = currentPlayer;
     cellsButtons[index].disabled = true;
