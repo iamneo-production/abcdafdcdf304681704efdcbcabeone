@@ -169,4 +169,24 @@
     text-align: center;
     background:#ffff;
     pointer-events: none;
+    transform: translate(-50%,-50%)scale(0.9);
+}
+.result-box.show{
+    opacity: 1;
+    pointer-events:auto;
+    transform: translate(-50%,-50%)scale(1);
+
+}
+.result-box.won-text{
+    font-size:25x;
+    font-weight:500;
+    display:flex;
+    justify-content: center;
+}
+.result-box.won-text p{
+    font-weight:600;
+    margin:0.5px;
+}
+.result-box.btn{
+    
 }
