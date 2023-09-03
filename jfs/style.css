@@ -123,5 +123,33 @@
 }
 .players span:first-child{
     color:#ffff;
+
+}
+.players.slider{
+    position:absolute;
+    top:0;
+    left:0;
+    width:50%;
+    height:10%;
+    background: #ffff;
+    transition:all 0.3s ease;
+}
+.players.active.slider{
+    lest:50%;
+}
+.players.active span:first-child{
+    color:#56baed;
+}
+.players.active span:nth-child{
+    color:#ffff;
+}
+.play-area{
+    margin-top:20px;
+}
+.play-area section{
+    display:flex;
+    margin-bottom:1px;
+}
+.play-area section span{
     
 }
