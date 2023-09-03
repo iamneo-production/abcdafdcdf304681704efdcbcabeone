@@ -1,209 +1,97 @@
-*{
-    margin : 0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-.heading{
-    text-align:center;
-    font-family: Roboto;
-    font-size:50px;
-    color:white;
-    text-shadow: shadow 1px;
-}
-::selection{
-    color:#fff;
-}
-.select-box{
-    background-color: #ffff;
-    padding: 20px 25px 25px;
-    border-radius: 0px;
-    margin:35px;
-}
-.select-box.hide{
-    opacity: 0;
-    pointer-events: none;
-}
-.select-box.tittle{
-    font-size:22px;
-    font-weight:500;
-    margin:20px 0;
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;500;600;700&display=swap");
 
-}
-.select-box header{
-    font-size:30px;
-    font-weight:600;
-    padding-bottom:10px;
-    border-bottom:1px solid;
-}
-.select-box.options{
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2018/03/17/19/36/connection-3234929_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: "Radio Canada", sans-serif;
     display:flex;
-    width:100%
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-.select-box,.play-board,.result-box{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    transition:all 0.3s ease ;
-}
-.option button{
-    width:100%;
-    font-size:20px;
-    font-weight:500;
-    padding:10px 0;
-    border:none;
-    background: white;
-    color:#fff;
-    outline: none;
-    cursor:pointer;
-    transition:all 0.3s ease;
-}
-.option button:hover,
-.btn button:hover{
-    transform:scale(0.96);
-}
-.playerX{
-    margin-right: 5px;
 
+/* Enter your styling here */
+h1 {
+    color: whitesmoke;
+    text-align:center;
+    font-size:50px;
+    text-shadow: 2px 2px 4px black;
 }
-.playerO{
-    margin-left: 5px;
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:35px;
+    justify-content: center;
     
 }
-.select-box.credit{
-    text-align: center;
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
+.row {
+    display: flex;
 }
-.select-box.credit a{
-    color:white;
-    text-decoration: underline;
-}
-.select-box.credit a:hover{
-    text-decoration: underline;
-}
-.play-board{
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%,-50%)scale(0.9);
-}
-.play-board.show{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%,-50%)scale(1);
-}
-.play-board.details{
-    padding: 7px;
-    border-radius:5px;
-    background:#fffd;
-}
-.play-board.players{
-    width:100%;
-    display:flex;
-    position:relative;
-    justify-content: space-between;
-}
-.players span{
-    position:relative;
-    z-index: 2;
-    color:#ffff;
-    font-size:20px;
-    font-weight:500;
-    padding:10px 0;
-    width:100%;
-    text-align:center;
-    cursor:default;
-    user-select:none;
-    transition:all 0.3 ease;
-}
-.players.active span:last-child{
-    color:#56baed;
-}
-.players span:first-child{
-    color:#ffff;
-
-}
-.players.slider{
-    position:absolute;
-    top:0;
-    left:0;
-    width:50%;
-    height:10%;
-    background: #ffff;
-    transition:all 0.3s ease;
-}
-.players.active.slider{
-    left:50%;
-}
-.players.active span:first-child{
-    color:#56baed;
-}
-.players.active span:nth-child{
-    color:#ffff;
-}
-.play-area{
-    margin-top:20px;
-}
-.play-area section{
-    display:flex;
-    margin-bottom:1px;
-}
-.play-area section span{
-    display:block;
-    height:90px;
-    width:90px;
-    margin:2px;
-    color:#56baed;
-    line-height:80px;
-    text-align:center;
-    background:#fffd;
-
-}
-.result-box{
-    padding:25px 20px;
-    max-width:200px;
-    width:100%;
-    opacity: 0;
-    text-align: center;
-    background:#ffff;
-    pointer-events: none;
-    transform: translate(-50%,-50%)scale(0.9);
-}
-.result-box.show{
-    opacity: 1;
-    pointer-events:auto;
-    transform: translate(-50%,-50%)scale(1);
-
-}
-.result-box.won-text{
-    font-size:25x;
-    font-weight:500;
-    display:flex;
-    justify-content: center;
-}
-.result-box.won-text p{
-    font-weight:600;
-    margin:0.5px;
-}
-.result-box.btn{
-    width:100%;
-    margin-top:25px;
-    display:flex;
-    justify-content: center;
-}
-.btn button{
-    font-size: 50px;
-    height:75px;
+.btn {
+    border: none;
     width:75px;
-    background:#56baed;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+    border-radius:5px;
+    margin:2px;
     font-weight:500;
-    padding:8px 20px;
-    border:none;
-    color:#ffff;
-    outline:none;
-    cursor:pointer;
-    transition:all 0.3s ease;
+    background-color:white;
+    opacity:0.7;
+    color:black;
+    text-shadow:2px 2px 4px black;
+    border:solid grey 1px;
+}  
+.btn:active {
+    outline: none;
+}
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); 
+    cursor: pointer;
+}
+.btn:disabled {
+    color: black;
+    cursor: no-drop;
+  }
+.result-container{
+   max-width: 200px;
+   background-color:white;
+   opacity:0.7;
+   border:solid grey;
+   border-radius:10px;
+}
+.result {
+    color:rgb(0, 0, 0);
+    text-shadow:2px 2px 4px black;
+    font-size: 25px;
+}
 
+
+#reset {
+    text-align: center;
+    border:solid black 1.8px;
+    border-radius: 5px;
+    padding:2px 6px;
+    margin:18px 77px;
+    cursor:pointer;
+    
+}
+
+#reset:hover{
+    color:white;
+    background-color: black;
+    transform: translate(2px,3px);
+}
+  
+
+#main {
+    text-align: center;
 }

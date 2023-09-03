@@ -1,53 +1,8 @@
-const selectBox=document.querySelector(".select-box"),
-selectBtnX=selectBox.querySelector(".options.playerX"),
-selectBtnO=selectBox.querySelector(".options.playerO"),
-playBoard=document.querySelector(".play-board"),
-players=document.querySelector(".players"),
-allBox=document.querySelectorAll("section span"),
-resultBox=document.querySelector(".result-box"),
-wonText=resultBox.querySelector(".won-text"),
-replayBtn=resultBox.querySelector("button");
-let currentPlayer="X";
-
-window.onload=()=>{
-    for(let i =0; i<allBox.length;i++){
-        allBox[i].setAttribute("onclick","clickedBox(this)");
-
-    }
-};
-selectBtnX.onclick=()=>{
-    selectBox.classList.add("hide");
-    playBoard.classList.add("show");
-};
-
-function clickedBox(element){
-    if(!element.classList.contains("disable")){
-        element.innerHTML='<i class="${currentPlayer==="X"?"fas fa-times":"fat fa-circle"}"></i>';
-        element.classList.add("disable");
-        currentPlayer=currentPlayer==="X"?"O":"X";
-        selectWinner();
-        btoa();
-    }
-}
-
-function bot(){
-    let emptyBoxes=[];
-    for(let i =0;i<allBox.length;i++){
-        if(!allBox[i].classList.contains("disable")){
-            emptyBoxes.push(allBox[i]);
-        }
-    }
-    const randomBox = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
-  if (emptyBoxes.length > 0) {
-    randomBox.innerHTML = `<i class="${currentPlayer === "X" ? "fas fa-times" : "far fa-circle"}"></i>`;
-    randomBox.classList.add("disable");
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    selectWinner();
-  }
-}
-
-function selectWinner() {
-  const winCombinations = [
+let cells = ['', '', '', '', '', '', '', '', ''];
+let currentPlayer = 'X';
+let result = document.querySelector('.result');
+let btns = document.querySelectorAll('.btn');
+let conditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -55,33 +10,55 @@ function selectWinner() {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],
-  ];
+    [2, 4, 6]
+];
 
-  let winner = null;
+// Function to handle player moves
+const ticTacToe = (element, index) => {
+    // Check if the cell is already filled
+    if (cells[index] !== '') return;
 
-  for (let i = 0; i < winCombinations.length; i++) {
-    const [a, b, c] = winCombinations[i];
-    if (
-      allBox[a].innerHTML === allBox[b].innerHTML &&
-      allBox[b].innerHTML === allBox[c].innerHTML &&
-      allBox[a].innerHTML !== ""
-    ) {
-      winner = allBox[a].innerHTML;
-      break;
+    // Update the game state
+    cells[index] = currentPlayer;
+    element.textContent = currentPlayer;
+
+    // Check for winning conditions
+    for (const condition of conditions) {
+        const [a, b, c] = condition;
+        if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+            // Your code to update the game state and check for a win
+            result.textContent = `${currentPlayer} wins!`;
+
+            // Your code to display the current player's turn
+            btns.forEach(btn => btn.disabled = true);
+            return; // Exit the function to prevent further moves
+        }
     }
-  }
 
-  if (winner) {
-    wonText.innerHTML = `Player ${winner} won the game!`;
-    resultBox.classList.add("show");
-    playBoard.classList.remove("show");
-  } else if ([...allBox].every((box) => box.classList.contains("disable"))) {
-    wonText.textContent = "Match has been drawn!";
-    resultBox.classList.add("show");
-    playBoard.classList.remove("show");
-  }
-}
-replayBtn.onclick = ()=>{
-    window.location.reload(); 
-}
+    // Your code to handle button and cell interactions
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    result.textContent = `Current Player: ${currentPlayer}`;
+};
+
+// Function to reset the game
+const resetGame = () => {
+    // Your code to reset the game state
+    cells = ['', '', '', '', '', '', '', '', ''];
+    currentPlayer = 'X';
+
+    // Your code to update the 'result' element
+    // ... Clear X and O symbols from cells on the game board
+    btns.forEach((btn, i) => {
+        btn.textContent = '';
+        btn.disabled = false;
+    });
+
+    // Your code to re-enable buttons
+    result.textContent = 'Current Player: X'
+};
+
+btns.forEach((btn, i) => {
+    btn.addEventListener('click', () => ticTacToe(btn, i));
+});
+
+document.querySelector('#reset').addEventListener('click', resetGame);
