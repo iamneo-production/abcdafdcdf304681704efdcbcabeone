@@ -99,3 +99,29 @@
     border-radius:5px;
     background:#fffd;
 }
+.play-board.players{
+    width:100%;
+    display:flex;
+    position:relative;
+    justify-content: space-between;
+}
+.players span{
+    position:relative;
+    z-index: 2;
+    color:#ffff;
+    font-size:20px;
+    font-weight:500;
+    padding:10px 0;
+    width:100%;
+    text-align:center;
+    cursor:default;
+    user-select:none;
+    transition:all 0.3 ease;
+}
+.players.active span;last-child{
+    color:#56baed;
+}
+.players span:first-child{
+    color:#ffff;
+    
+}
