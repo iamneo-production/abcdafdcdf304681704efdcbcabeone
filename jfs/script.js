@@ -1,7 +1,7 @@
 let cells = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let result = document.querySelector('.result');
-let cellsButtons = document.querySelectorAll('.cell');
+let cellsButtons = document.querySelectorAll('.btn');
 let resetButton = document.querySelector('#reset');
 let conditions = [
     [0, 1, 2],
@@ -14,49 +14,47 @@ let conditions = [
     [2, 4, 6]
 ];
 
-// Function to handle player moves
 const ticTacToe = (index) => {
-    // Check if the cell is already filled
-    if (cells[index] !== '') return;
+    
+    if (cells[index] !== '' || result.textContent.includes('wins')) return;
 
-    // Update the game state
+  
     cells[index] = currentPlayer;
-    cellsButtons[index].textContent = currentPlayer;
+    cellsButtons[index].value = currentPlayer;
+    cellsButtons[index].disabled = true;
 
-    // Check for winning conditions
+   
     for (const condition of conditions) {
         const [a, b, c] = condition;
         if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
             result.textContent = `${currentPlayer} wins!`;
-            disableButtons();
-            return; // Exit the function to prevent further moves
+            return; 
         }
     }
 
-    // Check for a draw
     if (!cells.includes('')) {
         result.textContent = "It's a draw!";
-        disableButtons();
         return;
     }
 
-    // Switch to the other player
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     result.textContent = `Current Player: ${currentPlayer}`;
 };
 
-// Function to disable buttons after the game ends
-const disableButtons = () => {
-    cellsButtons.forEach((button) => {
-        button.disabled = true;
-    });
-};
-
-// Function to reset the game
 const resetGame = () => {
     cells = ['', '', '', '', '', '', '', '', ''];
     currentPlayer = 'X';
+    result.textContent = 'Current Player: X';
 
-    cellsButtons.forEach((button, index) => {
-        button.textContent = '';
+    cellsButtons.forEach((button) => {
+        button.value = '';
         button.disabled = false;
+    });
+};
+
+cellsButtons.forEach((button, index) => {
+    button.addEventListener('click', () => ticTacToe(index));
+});
+
+resetButton.addEventListener('click', resetGame);
+
