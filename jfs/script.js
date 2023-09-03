@@ -22,6 +22,8 @@ selectBtnX.onclick=()=>{
 
 function clickedBox(element){
     if(!element.classList.contains("disable")){
-        element.innerHTML='<i class=${currentPlayer==="X'?"fas fa-times":"far fa-circle"
+        element.innerHTML='<i class="${currentPlayer==="X"?"fas fa-times":"fat fa-circle"}"></i>';
+        element.classList.add("disable");
+        current
     }
 }
