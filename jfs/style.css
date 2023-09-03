@@ -47,3 +47,27 @@
     transform:translate(-50%,-50%);
     transition:all 0.3s ease ;
 }
+.option button{
+    width:100%;
+    font-size:20px;
+    font-weight:500;
+    padding:10px 0;
+    border:none;
+    background: white;
+    color:#fff;
+    outline: none;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+.option button:hover,
+.btn button:hover{
+    transform:scale(0.96);
+}
+.playerX{
+    margin-right: 5px;
+
+}
+.playerO{
+    margin-left: 5px;
+    
+}
