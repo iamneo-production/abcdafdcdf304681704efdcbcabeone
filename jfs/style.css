@@ -20,10 +20,24 @@
     border-radius: 0px;
     margin:35px;
 }
-.select-box,hide{
+.select-box.hide{
     opacity: 0;
     pointer-events: none;
 }
 .select-box.tittle{
-    font
+    font-size:22px;
+    font-weight:500;
+    margin:20px 0;
+
 }
+.select-box header{
+    font-size:30px;
+    font-weight:600;
+    padding-bottom:10px;
+    border-bottom:1px solid;
+}
+.select-box.options{
+    display:flex;
+    width:100%
+}
+.select-
