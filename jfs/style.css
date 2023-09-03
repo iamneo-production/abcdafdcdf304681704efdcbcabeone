@@ -7,5 +7,10 @@
 .heading{
     text-align:center;
     font-family: Roboto;
-    
+    font-size:50px;
+    color:white;
+    text: shadow 1px;
+}
+::selection{
+    color:#fff;
 }
